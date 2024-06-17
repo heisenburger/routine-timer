@@ -1,0 +1,15 @@
+title: Routine Timer
+description: >- # this means to ignore newlines until "baseurl:"
+  A lil somethin somethin for my broken brain
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "routine.serena.nz" # the base hostname & protocol for your site, e.g. http://example.com
+emoji-favicon: ⏲
+theme-color: #ffffff
+
+# Specify front matter defaults
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "default"

@@ -1,0 +1,74 @@
+---
+---
+@charset "utf-8";
+
+// Helpers
+// =======
+
+// Dark mode
+@mixin dark() {
+  @media only screen and (prefers-color-scheme: dark) {
+    @content
+  }
+}
+
+// Transitions
+@mixin transit($duration: 0.2s) {
+  transition: all 0.2s ease-in-out;
+  @media only screen and (prefers-reduced-motion) {
+    transition: none;
+  }
+}
+
+// Mobile-first media queries
+@mixin query($breakpoint: 480px) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+// Reset
+// =====
+
+* {
+  box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+  margin: 0;
+  padding: 0;
+}
+
+// Variables
+// =========
+
+:root {
+
+// Fonts
+  --ff-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Helvetica", 
+    "Arial", "Roboto", "Ubuntu", "Segoe UI", "Fira Sans", "Droid Sans", 
+    sans-serif;
+  --ff-serif: "Ivy Journal", "Adobe Caslon Pro", "Goudy Old Style", 
+    "Athelas", "Californian FB", "Georgia Pro", Georgia,
+    serif;
+
+// Colours
+  --foreground: black;
+  --background: white;
+  --accent: #5278ac;
+  @include dark {
+    --foreground: white;
+    --background: black;
+  }
+}
+
+// Imports
+// =======
+
+
+// SCSS partials
+@import
+  "base"
+;
