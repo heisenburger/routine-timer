@@ -1,4 +1,35 @@
 ---
-title: s t a r t
+title: ☀️ Morning Routine ☀️
+
+task: Sunscreen, makeup
+duration: 8
+priority: 0
+randomiser: [one, two, three]
+
+next: Meds/vitamins, water
 ---
 
+<h3 class="title-routine">{{ page.title }}</h3>
+
+<h1 class="title-task">{{ page.task }}</h1>
+
+<button class="randomiser">{{ page.randomiser | sample:1 }}</button>
+
+<section class="timer-space">
+  <div class="timer">
+    <svg class="timer_svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <g class="timer_circle">
+        <circle class="timer_path-elapsed" cx="50" cy="50" r="45" />
+      </g>
+    </svg>
+    <div id="timer-label" class="timer_label">
+      27:38
+    </div>
+    <div id="overtime-label" class="overtime_label">
+      27:38
+    </div>
+  </div>
+</section>
+
+
+<h2 class="title-next_task">Next: {{ page.next }}</h2>

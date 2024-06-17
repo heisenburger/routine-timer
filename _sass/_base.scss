@@ -1,0 +1,82 @@
+// Base styling
+// ============
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--ff-sans);
+  line-height: 1.5;
+  color: var(--foreground);
+  background-color: var(--background);
+  font-feature-settings: "kern" 1,"liga" 1,"calt" 1,"pnum" 1,"tnum" 0,"onum" 1,"lnum" 0,"dlig" 0;
+  font-kerning: normal;
+  text-rendering: optimizeSpeed;
+  position: relative;
+  overflow: hidden;
+
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+a {
+  color: var(--foreground);
+    @include transit;
+  &:hover {
+    color: var(--accent);
+  }
+}
+
+h1, h2, h3 {
+  line-height: 1;
+}
+
+
+// Timer
+// -----
+
+.timer-space {
+  --max-width: 30rem;
+  --strokewidth: 0.8vw;
+  flex-grow: 1;
+  display: grid;
+  place-items: center;
+}
+
+@mixin timer-size {
+  width: 100vw;
+  aspect-ratio: 1 / 1;
+  max-width: var(--max-width);
+}
+
+.timer {
+  position: relative;
+  @include timer-size;
+  padding: 1rem;
+}
+
+.timer_circle {
+  fill: none;
+  stroke: none;
+}
+
+.timer_path-elapsed {
+  stroke-width: clamp(0.5px, var(--strokewidth), calc(var(--max-width) / var(--strokewidth)));
+  stroke: var(--foreground);
+}
+
+.timer_label {
+  position: absolute;
+  @include timer-size;
+  top: 0;
+  left: 0;
+  
+  display: grid;
+  place-items: center;
+
+  font-size: min(28vw, calc((var(--max-width)/100)*28));
+  font-weight: 100;
+}
