@@ -1,0 +1,73 @@
+// Timer
+// -----
+
+$max-width: 30rem;
+
+.timer-space {
+  --max-width: #{$max-width};
+  --strokewidth: 0.8vw;
+  flex-grow: 1;
+  display: grid;
+  place-items: center;
+}
+
+@mixin timer-size {
+  width: 100vw;
+  aspect-ratio: 1 / 1;
+  max-width: var(--max-width);
+}
+
+@mixin vw-w-max($property, $value) {
+  #{$property}: min($value, calc( ( var(--max-width)/100 ) * ( $value/1vw ) ))
+}
+
+.timer {
+  position: relative;
+  top: 1vh;
+  @include timer-size;
+  @media (max-height: $max-width) {
+    top: calc( ((100vh - min(100vw, var(--max-width))) /2) + 5vh);
+  }
+}
+
+.timer_circle {
+  fill: none;
+  stroke: none;
+}
+
+.timer_path-elapsed {
+  stroke-width: clamp(0.5px, var(--strokewidth), calc(var(--max-width) / var(--strokewidth)));
+  stroke: var(--foreground);
+}
+
+.timer_label {
+  position: absolute;
+  @include timer-size;
+  top: 0;
+  left: 0;
+  
+  display: grid;
+  place-items: center;
+
+  @include vw-w-max(font-size, 28vw);
+  font-weight: 100;
+}
+
+  #timer-label {
+    position: relative;
+    @include vw-w-max(top, -1vw);
+  }
+
+.overtime_label {
+  position: absolute;
+  @include vw-w-max(bottom, 35vw);
+  width: 100%;
+}
+
+  #overtime-label {
+    position: relative;
+    top: 1em;
+    @include chip;
+    background-color: darkred;
+    color: var(--background);
+  }

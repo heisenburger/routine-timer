@@ -27,6 +27,12 @@
   }
 }
 
+@mixin landscape {
+  @media (min-aspect-ratio: 1/1) {
+    @content;
+  }
+}
+
 // Reset
 // =====
 
@@ -70,5 +76,7 @@ dl, dd, ol, ul, figure {
 
 // SCSS partials
 @import
-  "base"
+  "global"
+  ,"timer"
+  ,"headfoot"
 ;

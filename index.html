@@ -4,16 +4,18 @@ title: ☀️ Morning Routine ☀️
 task: Sunscreen, makeup
 duration: 8
 priority: 0
-randomiser: [one, two, three]
+randomiser: [kitchen, clothes chair, bathroom]
 
 next: Meds/vitamins, water
 ---
 
-<h3 class="title-routine">{{ page.title }}</h3>
-
-<h1 class="title-task">{{ page.task }}</h1>
-
-<button class="randomiser">{{ page.randomiser | sample:1 }}</button>
+<header>
+  <h3 class="routine">{{ page.title }}</h3>
+  <section class="task">
+    <h1 class="task-title">{{ page.task }}</h1>
+    <button class="randomiser">{{ page.randomiser | sample:1 }}</button>
+  </section>
+</header>
 
 <section class="timer-space">
   <div class="timer">
@@ -22,14 +24,15 @@ next: Meds/vitamins, water
         <circle class="timer_path-elapsed" cx="50" cy="50" r="45" />
       </g>
     </svg>
-    <div id="timer-label" class="timer_label">
-      27:38
+    <div class="timer_label">
+      <span id="timer-label">27:38</span>
     </div>
-    <div id="overtime-label" class="overtime_label">
-      27:38
+    <div class="overtime_label">
+      <span id="overtime-label">+ 27:38</span>
     </div>
   </div>
 </section>
 
-
-<h2 class="title-next_task">Next: {{ page.next }}</h2>
+<footer>
+  <h2 class="next-title">Next: {{ page.next }}</h2>
+</footer>

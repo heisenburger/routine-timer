@@ -1,0 +1,41 @@
+// Global
+// ======
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--ff-sans);
+  line-height: 1.5;
+  color: var(--foreground);
+  background-color: var(--background);
+  font-feature-settings: "kern" 1,"liga" 1,"calt" 1,"pnum" 1,"tnum" 0,"onum" 1,"lnum" 0,"dlig" 0;
+  font-kerning: normal;
+  text-rendering: optimizeSpeed;
+  position: relative;
+  overflow: hidden;
+
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+a {
+  color: var(--foreground);
+    @include transit;
+  &:hover {
+    color: var(--accent);
+  }
+}
+
+h1, h2, h3 {
+  line-height: 1;
+}
+
+@mixin chip {
+  display: inline-block;
+  padding: 0.35em 0.8em 0.4em;
+  border-radius: 9px;
+}

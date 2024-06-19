@@ -6,23 +6,23 @@ The routines here are hardcoded, but feel free to fork this and put in your own 
 
 ## game plan
 
-- [] start with the timer page layout and styles
-  - [] routine name
-  - [] current task
-  - [] shuffle component
-  - [] countdown timer
-  - [] overtime counter
-  - [] next task
-- [] add countdown behaviour
-  - [] timer
-  - [] timer ring
-  - [] overtime counter
-  - [] next task shows when <30s remaining
-- [] create some kind of data structure to hold the routine info
-  - [] make the timer consume from this data
-  - [] previous task
-  - [] next task
-  - [] shuffle
-- [] extra functionality
-  - [] next task button activates only after 1 min, if unskippable
-  - [] create homepage; move timer to own page
+- [x] start with the timer page layout and styles
+  - [x] routine name
+  - [x] current task
+  - [x] shuffle component
+  - [x] countdown timer
+  - [x] overtime counter
+  - [x] next task
+- [ ] add countdown behaviour
+  - [ ] timer
+  - [ ] timer ring
+  - [ ] overtime counter
+  - [ ] next task shows when <30s remaining
+- [ ] create some kind of data structure to hold the routine info
+  - [ ] make the timer consume from this data
+  - [ ] previous task
+  - [ ] next task
+  - [ ] shuffle
+- [ ] extra functionality
+  - [ ] next task button activates only after 1 min, if unskippable
+  - [ ] create homepage; move timer to own page
