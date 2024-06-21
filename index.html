@@ -9,6 +9,7 @@ randomiser: [kitchen, clothes chair, bathroom]
 next: Meds/vitamins, water
 ---
 
+
 <header>
   <h3 class="routine">{{ page.title }}</h3>
   <section class="task">
@@ -19,13 +20,24 @@ next: Meds/vitamins, water
 
 <section class="timer-space">
   <div class="timer">
-    <svg class="timer_svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
       <g class="timer_circle">
-        <circle class="timer_path-elapsed" cx="50" cy="50" r="45" />
+        <circle class="timer_circle-elapsed" cx="50" cy="50" r="45"></circle>
+        <path
+          id="timer-circle-remaining"
+          stroke-dasharray="283"
+          class="timer_circle-remaining"
+          d="
+            M 50, 50
+            m -45, 0
+            a 45,45 0 1,0 90,0
+            a 45,45 0 1,0 -90,0
+          "
+        ></path>
       </g>
     </svg>
     <div class="timer_label">
-      <span id="timer-label">27:38</span>
+      <span id="timer-label">00:00</span>
     </div>
     <div class="overtime_label">
       <span id="overtime-label">+ 27:38</span>
@@ -34,5 +46,9 @@ next: Meds/vitamins, water
 </section>
 
 <footer>
-  <h2 class="next-title">Next: {{ page.next }}</h2>
+  <button class="next-title">Next: {{ page.next }}</button>
 </footer>
+
+<script type="text/javascript">
+  {% include timer.js %}  
+</script>

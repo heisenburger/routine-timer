@@ -31,13 +31,24 @@ $max-width: 30rem;
 }
 
 .timer_circle {
+  --stroke-width: clamp(0.5px, var(--strokewidth), calc(var(--max-width) / var(--strokewidth)));
   fill: none;
   stroke: none;
 }
 
-.timer_path-elapsed {
-  stroke-width: clamp(0.5px, var(--strokewidth), calc(var(--max-width) / var(--strokewidth)));
-  stroke: var(--foreground);
+.timer_circle-elapsed {
+  stroke-width: var(--stroke-width);
+  stroke: var(--background);
+}
+
+.timer_circle-remaining {
+  stroke-width: var(--stroke-width);
+  stroke-linecap: round;
+  transform: rotate(90deg);
+  transform-origin: center;
+  transition: 950ms linear all;
+  fill-rule: nonzero;
+  stroke: var(--foreground);;
 }
 
 .timer_label {
@@ -60,8 +71,11 @@ $max-width: 30rem;
 
 .overtime_label {
   position: absolute;
-  @include vw-w-max(bottom, 35vw);
+  @include vw-w-max(bottom, 30vw);
   width: 100%;
+  @media (max-height: $max-width) {
+    @include vw-w-max(bottom, 35vw);
+  }
 }
 
   #overtime-label {
