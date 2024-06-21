@@ -1,11 +1,12 @@
 const FULL_DASH_ARRAY = 283;
 
-let TIME_LIMIT = 5;
+let TIME_LIMIT = 80;
 let timePassed = 0;
 let timeLeft = TIME_LIMIT;
 let timerInterval = null;
 let overtime = false;
 let stopDetected = false;
+let showNextTaskWhen = 120
 
 document.getElementById("timer-label").textContent = formatTime(timeLeft);
 startTimer(overtime);
@@ -25,7 +26,6 @@ function startTimer(overtime) {
     timerInterval = setInterval(() => {
 
       if (stopDetected == true) {
-        
         clearInterval(timerInterval);
       }
 
@@ -35,6 +35,10 @@ function startTimer(overtime) {
         timeLeft = TIME_LIMIT - timePassed;
         document.getElementById("timer-label").textContent = formatTime(timeLeft);
         setCircleDasharray();
+
+        if (timeLeft <= showNextTaskWhen) {
+          document.getElementById("next-task-button").classList.add("visible");
+        }
 
         if (timeLeft === 0) {
           document.querySelector('.overtime_label').classList.add("visible");

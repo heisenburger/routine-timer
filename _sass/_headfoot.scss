@@ -71,6 +71,10 @@ footer {
   padding: 1rem 0;
 }
 
+#next-task-button {
+  @include invisible;
+}
+
 .next-title {
   font-size: max(2vh, 1rem);
   font-weight: 300;

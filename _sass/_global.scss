@@ -42,7 +42,7 @@ h1, h2, h3 {
 .visible {
   opacity: 1 !important;
   transform: translateY(0px) !important;
-  transition: 100ms ease-in-out all;
+  transition: 300ms ease-in-out all;
 }
 
 @mixin chip {
