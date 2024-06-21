@@ -1,30 +1,52 @@
 const FULL_DASH_ARRAY = 283;
 
-const TIME_LIMIT = 20;
+let TIME_LIMIT = 5;
 let timePassed = 0;
 let timeLeft = TIME_LIMIT;
 let timerInterval = null;
+let overtime = false;
+let stopDetected = false;
 
 document.getElementById("timer-label").textContent = formatTime(timeLeft);
-startTimer();
+startTimer(overtime);
 
 function onTimesUp() {
   clearInterval(timerInterval);
+  overtime = true;
+  timePassed = 0;
+  startTimer(overtime);
+  document
+    .getElementById("timer-circle-remaining")
+    .classList.add("timesup");
 }
 
-function startTimer() {
-  timerInterval = setInterval(() => {
-    timePassed = timePassed += 1;
-    timeLeft = TIME_LIMIT - timePassed;
-    document.getElementById("timer-label").textContent = formatTime(
-      timeLeft
-    );
-    setCircleDasharray();
+function startTimer(overtime) {
+  if (stopDetected == false) {
+    timerInterval = setInterval(() => {
 
-    if (timeLeft === 0) {
-      onTimesUp();
-    }
-  }, 1000);
+      if (stopDetected == true) {
+        
+        clearInterval(timerInterval);
+      }
+
+      timePassed = timePassed += 1;
+
+      if (overtime == false) {
+        timeLeft = TIME_LIMIT - timePassed;
+        document.getElementById("timer-label").textContent = formatTime(timeLeft);
+        setCircleDasharray();
+
+        if (timeLeft === 0) {
+          document.querySelector('.overtime_label').classList.add("visible");
+          onTimesUp();
+        }
+
+      } else if (overtime == true) {
+        document.getElementById("overtime-label").textContent = "+ " + formatTime(timePassed);
+      }
+
+    }, 1000);
+  }
 }
 
 function formatTime(time) {
@@ -52,3 +74,20 @@ function setCircleDasharray() {
     .setAttribute("stroke-dasharray", circleDasharray);
 }
 
+// Advance to next task
+
+// const nextTaskButton = document.getElementById("next-task-button");
+
+// nextTaskButton.addEventListener("click", (event) => {
+//   resetTimers(3);
+// });
+
+// function resetTimers(newTimeLimit) {
+//   TIME_LIMIT = newTimeLimit;
+//   overtime = false;
+//   timePassed = 0;
+//   stopDetected = true;
+//   timerInterval = null;
+//   startTimer(overtime);
+//   stopDetected = false;
+// }

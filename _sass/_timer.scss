@@ -48,8 +48,21 @@ $max-width: 30rem;
   transform-origin: center;
   transition: 950ms linear all;
   fill-rule: nonzero;
-  stroke: var(--foreground);;
+  stroke: var(--foreground);
 }
+
+  @keyframes pulseStroke {
+    0%, 100% {
+      stroke: var(--background);
+    }
+    50% {
+      stroke: var(--foreground);
+    }
+  }
+
+  .timer_circle-remaining.timesup {
+    animation: pulseStroke 2s ease-in-out infinite;
+  }
 
 .timer_label {
   position: absolute;
@@ -70,6 +83,7 @@ $max-width: 30rem;
   }
 
 .overtime_label {
+  @include invisible;
   position: absolute;
   @include vw-w-max(bottom, 30vw);
   width: 100%;
