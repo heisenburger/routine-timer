@@ -84,7 +84,7 @@ function Timer(fn, t) {
 // -----------------
 
 function setCurrentTask() {
-  console.log(routineData[currentTaskIndex]);
+  // console.log(routineData[currentTaskIndex]);
   if (currentTaskIndex >= 0) {
 
     // set the task name
@@ -195,7 +195,8 @@ function hideOvertimeTime() {
 
 const buttonPrevTask = document.getElementById("prev-task");
 buttonPrevTask.addEventListener("click", (event) => {
-  console.log(buttonPrevTask.id + " button clicked");
+  currentTaskIndex--;
+  setCurrentTask();
 });
 
 const buttonExitRoutine = document.getElementById("exit-routine");
@@ -215,7 +216,8 @@ buttonTimer.addEventListener("click", (event) => {
 
 const buttonNextTask = document.getElementById("next-task");
 buttonNextTask.addEventListener("click", (event) => {
-  console.log(buttonNextTask.id + " button clicked");
+  currentTaskIndex++;
+  setCurrentTask();
 });
 
 // Create countdown timer
