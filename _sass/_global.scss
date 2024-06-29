@@ -34,6 +34,16 @@ h1, h2, h3 {
   line-height: 1;
 }
 
+button {
+  background: none;
+  border: none;
+  &:active {
+    position: relative;
+    top: 2px;
+    left: 1px;
+  }
+}
+
 @mixin invisible {
   opacity: 0;
   transform: translateY(20px);

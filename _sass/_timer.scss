@@ -21,12 +21,12 @@ $max-width: 30rem;
   #{$property}: min($value, calc( ( var(--max-width)/100 ) * ( $value/1vw ) ))
 }
 
-.timer {
+#timer {
   position: relative;
-  top: 1vh;
+  margin-top: 5vh;
   @include timer-size;
   @media (max-height: $max-width) {
-    top: calc( ((100vh - min(100vw, var(--max-width))) /2) + 5vh);
+    margin-top: calc( ((100vh - min(100vw, var(--max-width))) /2) + 5vh);
   }
 }
 
@@ -85,16 +85,15 @@ $max-width: 30rem;
 .overtime_label {
   @include invisible;
   position: absolute;
-  @include vw-w-max(bottom, 30vw);
+  @include vw-w-max(bottom, 25vw);
   width: 100%;
   @media (max-height: $max-width) {
     @include vw-w-max(bottom, 35vw);
   }
+  @include vw-w-max(font-size, 5vw);
 }
 
   #overtime-label {
-    position: relative;
-    top: 1em;
     @include chip;
     background-color: darkred;
     color: var(--background);

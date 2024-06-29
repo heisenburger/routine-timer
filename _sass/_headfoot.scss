@@ -14,26 +14,37 @@ header {
   top: 0;
 }
 
-.routine {
-  margin-top: 1vh;
-  padding: 0.5em 0;
-  font-weight: 400;
+.navigation {
+  display: flex;
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 
-.task-title {
-  margin: 0.5em 10px 0.25em;
-  font-size: max(5vh, 1.25rem);
-  font-weight: 500;
-}
+  #prev-task,
+  #exit-routine {
+    font-size: 1rem;
+    padding: 1rem;
+    font-weight: 400;
+  }
+
+  .routine {
+    flex-grow: 1;
+    align-content: center;
+    padding: 0.5em 0;
+    font-weight: 400;
+  }
+
+    .task-title {
+      margin: 0.5em 10px;
+      font-size: max(5vh, 1.25rem);
+      font-weight: 500;
+    }
 
 button.randomiser {
   @include chip;
   background-color: var(--background);
-  border: none;
-  margin: 0.25em 0 5vh;
+  margin: 0.25em 0 2vh;
   font-size: max(2vh, 1rem);
   box-shadow: 0 0 0 1px var(--foreground),
     2px 4px 0 0 var(--background),
@@ -54,29 +65,30 @@ button.randomiser {
       z-index: -1;
       box-shadow: 0 0 0 1px var(--foreground);
     }
-
-  &:active {
-    position: relative;
-    top: 2px;
-    left: 1px;
-  }
 }
 
 // Footer
 // ------
 
 footer {
+  --footer-font-size: max(2.5vh, 1rem);
   bottom: 0;
-  min-height: calc((100vh - 100vw)/2);
-  padding: 1rem 0;
+  min-height: calc(2 * var(--footer-font-size));
+  height: 15vh;
+  margin: 1rem 0 0;
 }
 
-#next-task-button {
-  @include invisible;
-}
-
-.next-title {
-  font-size: max(2vh, 1rem);
+#next-task {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: var(--footer-font-size);
   font-weight: 300;
   letter-spacing: 0.05em;
+  width: 100%;
+  height: 100%;
+}
+
+#next-task-label {
+  @include invisible;
 }

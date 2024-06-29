@@ -1,10 +1,10 @@
-// Set global variables
-// --------------------
+// Initialize global variables
+// ---------------------------
 
 const FULL_DASH_ARRAY = 283;
 const showNextTaskWhen = 30;
 
-let timeLimit = 5;
+let timeLimit = 3;
 let timePassed = 0;
 let timeLeft = timeLimit;
 let overtime = false;
@@ -95,7 +95,7 @@ function updateOvertimeTime() {
 }
 
 function showNextTask() {
-  document.getElementById("next-task-button")
+  document.getElementById("next-task-label")
     .classList.add("visible");
 }
 
@@ -109,7 +109,7 @@ function showOvertimeTime() {
 }
 
 function hideNextTask() {
-  document.getElementById("next-task-button")
+  document.getElementById("next-task-label")
     .classList.remove("visible");
 }
 
@@ -122,6 +122,34 @@ function hideOvertimeTime() {
       .classList.remove("timesup");
 }
 
+// Create onclick listeners
+// ------------------------
+
+const buttonPrevTask = document.getElementById("prev-task");
+const buttonExitRoutine = document.getElementById("exit-routine");
+const buttonRandomiser = document.getElementById("random");
+const buttonTimer = document.getElementById("timer");
+const buttonNextTask = document.getElementById("next-task");
+
+buttonPrevTask.addEventListener("click", (event) => {
+  console.log(buttonPrevTask.id + " button clicked");
+});
+
+buttonExitRoutine.addEventListener("click", (event) => {
+  console.log(buttonExitRoutine.id + " button clicked");
+});
+
+buttonRandomiser.addEventListener("click", (event) => {
+  console.log(buttonRandomiser.id + " button clicked");
+});
+
+buttonTimer.addEventListener("click", (event) => {
+  console.log(buttonTimer.id + " button clicked");
+});
+
+buttonNextTask.addEventListener("click", (event) => {
+  console.log(buttonNextTask.id + " button clicked");
+});
 
 // Create countdown timer
 // ----------------------
@@ -136,7 +164,7 @@ var countdown = new Timer(function() {
     if (
       timeLeft <= showNextTaskWhen 
       && 
-      !document.getElementById("next-task-button").classList.contains("visible")
+      !document.getElementById("next-task-label").classList.contains("visible")
     ) { // should only run once
       showNextTask();
     }

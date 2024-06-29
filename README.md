@@ -17,7 +17,7 @@ The routines here are hardcoded, but feel free to fork this and put in your own 
   - [x] timer
   - [x] timer ring
   - [x] overtime counter
-  - [ ] next task shows when <30s remaining
+  - [x] next task shows when <30s remaining
 - [ ] create some kind of data structure to hold the routine info
   - [ ] make the timer consume from this data
   - [ ] previous task

@@ -11,15 +11,21 @@ next: Meds/vitamins, water
 
 
 <header>
-  <h3 class="routine">{{ page.title }}</h3>
+  <section class="navigation">
+    <button id="prev-task">←</button>
+    <h3 class="routine">{{ page.title }}</h3>
+    <button id="exit-routine">✗</button>
+  </section>
+  
+
   <section class="task">
     <h1 class="task-title">{{ page.task }}</h1>
-    <button class="randomiser">{{ page.randomiser | sample:1 }}</button>
+    <button id="random" class="randomiser">{{ page.randomiser | sample:1 }}</button>
   </section>
 </header>
 
 <section class="timer-space">
-  <div class="timer">
+  <button id="timer">
     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
       <g class="timer_circle">
         <circle class="timer_circle-elapsed" cx="50" cy="50" r="45"></circle>
@@ -42,11 +48,13 @@ next: Meds/vitamins, water
     <div class="overtime_label">
       <span id="overtime-label">--:--</span>
     </div>
-  </div>
+  </button>
 </section>
 
 <footer>
-  <button id="next-task-button" class="next-title">Next: {{ page.next }}</button>
+  <button id="next-task">
+    <span id="next-task-label">Next: {{ page.next }}</span>
+  </button>
 </footer>
 
 <script type="text/javascript">
