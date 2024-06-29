@@ -12,6 +12,10 @@ header, footer {
 
 header {
   top: 0;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .navigation {
@@ -65,6 +69,8 @@ button.randomiser {
       z-index: -1;
       box-shadow: 0 0 0 1px var(--foreground);
     }
+    
+  display: none;
 }
 
 // Footer

@@ -1,11 +1,11 @@
 // Import routine data
 // -------------------
 
-let routineData = {};
+var routineData = {};
+let currentTaskIndex = 0;
 fetch("./routines.json")
   .then(response => response.json())
   .then(json => {
-    console.log(json.morning);
     routineData = structuredClone(json.morning);
   });
 
@@ -16,15 +16,16 @@ fetch("./routines.json")
 const FULL_DASH_ARRAY = 283;
 const showNextTaskWhen = 30;
 
-// Initialise task variables
+// Task variables
 let prevTask = "";
 let task = "";
 let nextTask = "";
-let taskDuration = 0; // in minutes
-let taskPriority = 0; // [0, 1, 2]
+let taskDuration = 0;
+let taskPriority = 0;
 let randomiser = [];
 
-let timeLimit = 0;
+// Timer variables
+let timeLimit = 60 * taskDuration;
 let timePassed = 0;
 let timeLeft = timeLimit;
 let overtime = false;
@@ -79,6 +80,36 @@ function Timer(fn, t) {
   }
 }
 
+// Task manipulation
+// -----------------
+
+function setCurrentTask() {
+  console.log(routineData[currentTaskIndex]);
+  if (currentTaskIndex >= 0) {
+
+    // set the task name
+    task = routineData[currentTaskIndex].task ?? "No task found";
+    taskDuration = routineData[currentTaskIndex].duration ?? 0; // in minutes
+    taskPriority = routineData[currentTaskIndex].priority ?? 0; // [0, 1, 2]
+    randomiser = routineData[currentTaskIndex].randomiser ?? [];
+
+    // prev and next tasks
+    if (routineData[currentTaskIndex-1]) {
+      prevTask = routineData[currentTaskIndex-1].task ?? "";
+    }
+    if (routineData[currentTaskIndex+1]) {
+      nextTask = routineData[currentTaskIndex+1].task ?? "";
+    }
+
+    // set the timeLimit for timer
+    timeLimit = 60 * taskDuration;
+
+    countdown.reset();
+  }
+
+  setTaskInfo();
+}
+
 
 // Time formatting
 // ---------------
@@ -101,6 +132,13 @@ function calculateTimeFraction() {
 
 // DOM manipulations
 // -----------------
+
+function setTaskInfo() {
+  hideNextTask();
+  document.getElementById("task-title").textContent = task;
+  document.getElementById("random").textContent = randomiser[Math.floor(Math.random() * randomiser.length)];
+  document.getElementById("next-task-label").textContent = "Next: " + nextTask;
+}
 
 function setCircleDasharray() {
   const circleDasharray = `${(
@@ -196,6 +234,7 @@ var countdown = new Timer(function() {
       !document.getElementById("next-task-label").classList.contains("visible")
     ) { // should only run once
       showNextTask();
+    console.log("show next task");
     }
 
     if (timeLeft <= 0) { // should only run once

@@ -1,57 +1,70 @@
 {
-  "morning": {
-    "Draw the blinds and look outside": {
-      "duration" : 5,
+  "morning": [
+    {
+      "task": "Draw the blinds and look outside",
+      "duration" : 1,
       "priority": 0
     },
-    "Brush teeth, wash face, skincare": {
+    {
+      "task": "Brush teeth, wash face, skincare",
       "duration" : 8,
       "priority": 0
     },
-    "Take meds / vitamins; water": {
+    {
+      "task": "Take meds / vitamins; water",
       "duration" : 2,
       "priority": 0
     },
-    "Get dressed": {
+    {
+      "task": "Get dressed",
       "duration" : 5,
       "priority": 0
     },
-    "Make the bed": {
+    {
+      "task": "Make the bed",
       "duration" : 2,
       "priority": 1
     },
-    "Sunscreen, makeup": {
+    {
+      "task": "Sunscreen, makeup",
       "duration" : 8,
       "priority": 0
     },
-    "3 minute meditation": {
+    {
+      "task": "3 minute meditation",
       "duration" : 3,
       "priority": 1
     },
-    "Morning pages": {
+    {
+      "task": "Morning pages",
       "duration" : 15,
       "priority": 2
     },
-    "Check calendar for today, emails, chats": {
+    {
+      "task": "Check calendar for today, emails, chats",
       "duration" : 5,
       "priority": 2
     },
-    "Jewelry, perfume; outfit check": {
+    {
+      "task": "Jewelry, perfume; outfit check",
       "duration" : 2,
       "priority": 1
     },
-    "Socks & shoes": {
+    {
+      "task": "Socks & shoes",
       "duration" : 1,
       "priority": 0
     },
-    "Bag. Keys. Wallet. Phone. Let's gooooo": {
+    {
+      "task": "Bag. Keys. Wallet. Phone. Let's gooooo",
       "duration" : 1,
       "priority": 0
     }
-  },
+  ],
 
-  "routine": {
-    "task": {
+  "routine": [
+    {
+      "task": "",
       "duration" : 0,
       "priority": 0,
       "randomiser": [
@@ -60,5 +73,5 @@
         "three"
       ]
     }
-  }
+  ]
 }
