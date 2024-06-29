@@ -28,14 +28,14 @@ header {
     font-weight: 400;
   }
 
-  .routine {
+  #routine {
     flex-grow: 1;
     align-content: center;
     padding: 0.5em 0;
     font-weight: 400;
   }
 
-    .task-title {
+    #task-title {
       margin: 0.5em 10px;
       font-size: max(5vh, 1.25rem);
       font-weight: 500;

@@ -13,13 +13,13 @@ next: Meds/vitamins, water
 <header>
   <section class="navigation">
     <button id="prev-task">←</button>
-    <h3 class="routine">{{ page.title }}</h3>
+    <h3 id="routine">{{ page.title }}</h3>
     <button id="exit-routine">✗</button>
   </section>
   
 
   <section class="task">
-    <h1 class="task-title">{{ page.task }}</h1>
+    <h1 id="task-title">{{ page.task }}</h1>
     <button id="random" class="randomiser">{{ page.randomiser | sample:1 }}</button>
   </section>
 </header>

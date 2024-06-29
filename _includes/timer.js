@@ -42,6 +42,17 @@ function Timer(fn, t) {
     return this;
   }
 
+  this.toggle = function() {
+    if (timerObj) {
+      clearInterval(timerObj);
+      timerObj = null;
+    } else if (!timerObj) {
+      this.stop();
+      timerObj = setInterval(fn, t);
+    }
+    return this;
+  }
+
   // start with new or original interval, stop current interval
   this.reset = function() {
     resetTimer();
@@ -126,27 +137,26 @@ function hideOvertimeTime() {
 // ------------------------
 
 const buttonPrevTask = document.getElementById("prev-task");
-const buttonExitRoutine = document.getElementById("exit-routine");
-const buttonRandomiser = document.getElementById("random");
-const buttonTimer = document.getElementById("timer");
-const buttonNextTask = document.getElementById("next-task");
-
 buttonPrevTask.addEventListener("click", (event) => {
   console.log(buttonPrevTask.id + " button clicked");
 });
 
+const buttonExitRoutine = document.getElementById("exit-routine");
 buttonExitRoutine.addEventListener("click", (event) => {
   console.log(buttonExitRoutine.id + " button clicked");
 });
 
+const buttonRandomiser = document.getElementById("random");
 buttonRandomiser.addEventListener("click", (event) => {
   console.log(buttonRandomiser.id + " button clicked");
 });
 
+const buttonTimer = document.getElementById("timer");
 buttonTimer.addEventListener("click", (event) => {
-  console.log(buttonTimer.id + " button clicked");
+  countdown.toggle();
 });
 
+const buttonNextTask = document.getElementById("next-task");
 buttonNextTask.addEventListener("click", (event) => {
   console.log(buttonNextTask.id + " button clicked");
 });
