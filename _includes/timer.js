@@ -1,8 +1,28 @@
+// Import routine data
+// -------------------
+
+let routineData = {};
+fetch("./routines.json")
+  .then(response => response.json())
+  .then(json => {
+    console.log(json.morning);
+    routineData = structuredClone(json.morning);
+  });
+
+
 // Initialize global variables
 // ---------------------------
 
 const FULL_DASH_ARRAY = 283;
 const showNextTaskWhen = 30;
+
+// Initialise task variables
+let prevTask = "";
+let task = "";
+let nextTask = "";
+let taskDuration = 0; // in minutes
+let taskPriority = 0; // [0, 1, 2]
+let randomiser = [];
 
 let timeLimit = 0;
 let timePassed = 0;
@@ -17,13 +37,6 @@ function resetTimer() {
   timeOver = 0;
   hideOvertimeTime();
 }
-
-// Import routine data
-// -------------------
-
-import data from './routines.json';
-console.log(data);
-
 
 // Define Timer object
 // -------------------
@@ -48,7 +61,7 @@ function Timer(fn, t) {
     return this;
   }
 
-  this.toggle = function() {
+  this.startStop = function() {
     if (timerObj) {
       clearInterval(timerObj);
       timerObj = null;
@@ -159,7 +172,7 @@ buttonRandomiser.addEventListener("click", (event) => {
 
 const buttonTimer = document.getElementById("timer");
 buttonTimer.addEventListener("click", (event) => {
-  countdown.toggle();
+  countdown.startStop();
 });
 
 const buttonNextTask = document.getElementById("next-task");
