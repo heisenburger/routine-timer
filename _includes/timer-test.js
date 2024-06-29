@@ -2,7 +2,7 @@
 // --------------------
 
 const FULL_DASH_ARRAY = 283;
-const showNextTaskWhen = 30;
+const showNextTaskWhen = 120;
 
 let timeLimit = 5;
 let timePassed = 0;
@@ -154,6 +154,6 @@ var countdown = new Timer(function() {
   timePassed++;
   timeLeft = timeLimit - timePassed;
 
-  // console.log("up: " + timePassed + ", down: " + timeLeft + ", overtime: " + timeOver);
+  console.log("up: " + timePassed + ", down: " + timeLeft + ", overtime: " + timeOver);
 
 }, 1000);
