@@ -1,0 +1,64 @@
+{
+  "morning": {
+    "Draw the blinds and look outside": {
+      "duration" : 5,
+      "priority": 0,
+    },
+    "Brush teeth, wash face, skincare": {
+      "duration" : 8,
+      "priority": 0,
+    },
+    "Take meds / vitamins; water": {
+      "duration" : 2,
+      "priority": 0,
+    },
+    "Get dressed": {
+      "duration" : 5,
+      "priority": 0,
+    },
+    "Make the bed": {
+      "duration" : 2,
+      "priority": 1,
+    },
+    "Sunscreen, makeup": {
+      "duration" : 8,
+      "priority": 0,
+    },
+    "3 minute meditation": {
+      "duration" : 3,
+      "priority": 1,
+    },
+    "Morning pages": {
+      "duration" : 15,
+      "priority": 2,
+    },
+    "Check calendar for today, emails, chats": {
+      "duration" : 5,
+      "priority": 2,
+    },
+    "Jewelry, perfume; outfit check": {
+      "duration" : 2,
+      "priority": 1,
+    },
+    "Socks & shoes": {
+      "duration" : 1,
+      "priority": 0,
+    },
+    "Bag. Keys. Wallet. Phone. Let's gooooo": {
+      "duration" : 1,
+      "priority": 0,
+    },
+  },
+
+  "routine": {
+    "task": {
+      "duration" : 00,
+      "priority": 0,
+      "randomiser": [
+        "one",
+        "two",
+        "three"
+      ],
+    }
+  }
+}

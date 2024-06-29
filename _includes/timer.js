@@ -4,7 +4,7 @@
 const FULL_DASH_ARRAY = 283;
 const showNextTaskWhen = 30;
 
-let timeLimit = 3;
+let timeLimit = 0;
 let timePassed = 0;
 let timeLeft = timeLimit;
 let overtime = false;
@@ -17,6 +17,12 @@ function resetTimer() {
   timeOver = 0;
   hideOvertimeTime();
 }
+
+// Import routine data
+// -------------------
+
+import data from './routines.json';
+console.log(data);
 
 
 // Define Timer object
