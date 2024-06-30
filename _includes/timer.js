@@ -6,7 +6,8 @@ let currentTaskIndex = 0;
 fetch("./routines.json")
   .then(response => response.json())
   .then(json => {
-    routineData = structuredClone(json.morning);
+    console.log(routineData);
+    routineData = structuredClone(json.arriveHome);
   });
 
 
@@ -26,7 +27,7 @@ let randomiser = [];
 
 // Timer variables
 let timeLimit = 60 * taskDuration;
-let timePassed = 0;
+let timePassed = -1;
 let timeLeft = timeLimit;
 let overtime = false;
 let timeOver = 0;
@@ -91,7 +92,14 @@ function setCurrentTask() {
     task = routineData[currentTaskIndex].task ?? "No task found";
     taskDuration = routineData[currentTaskIndex].duration ?? 0; // in minutes
     taskPriority = routineData[currentTaskIndex].priority ?? 0; // [0, 1, 2]
-    randomiser = routineData[currentTaskIndex].randomiser ?? [];
+    
+    // random task flavour
+    if (routineData[currentTaskIndex].randomiser) {
+      randomiser = routineData[currentTaskIndex].randomiser ?? [];
+      showRandomiser();
+    } else {
+      hideRandomiser();
+    }
 
     // prev and next tasks
     if (routineData[currentTaskIndex-1]) {
@@ -99,6 +107,8 @@ function setCurrentTask() {
     }
     if (routineData[currentTaskIndex+1]) {
       nextTask = routineData[currentTaskIndex+1].task ?? "";
+    } else {
+      nextTask = "FIN.";
     }
 
     // set the timeLimit for timer
@@ -138,6 +148,18 @@ function setTaskInfo() {
   document.getElementById("task-title").textContent = task;
   document.getElementById("random").textContent = randomiser[Math.floor(Math.random() * randomiser.length)];
   document.getElementById("next-task-label").textContent = "Next: " + nextTask;
+}
+
+function getAnotherRandomTaskFlavour() {
+  document.getElementById("random").textContent = randomiser[Math.floor(Math.random() * randomiser.length)];
+}
+
+function showRandomiser() {
+  document.getElementById("random").setAttribute("style","display: inline-block");
+}
+
+function hideRandomiser() {
+  document.getElementById("random").setAttribute("style","display: none");
 }
 
 function setCircleDasharray() {
@@ -206,7 +228,7 @@ buttonExitRoutine.addEventListener("click", (event) => {
 
 const buttonRandomiser = document.getElementById("random");
 buttonRandomiser.addEventListener("click", (event) => {
-  console.log(buttonRandomiser.id + " button clicked");
+  getAnotherRandomTaskFlavour();
 });
 
 const buttonTimer = document.getElementById("timer");
@@ -225,6 +247,11 @@ buttonNextTask.addEventListener("click", (event) => {
 
 var countdown = new Timer(function() {
 
+  // initialise first task on page load
+  if (timePassed == -1) { 
+    setCurrentTask();
+  }
+
   // only change countdown timer if not in overtime
   if (overtime == false) {
     updateCountdownTime();
@@ -236,7 +263,6 @@ var countdown = new Timer(function() {
       !document.getElementById("next-task-label").classList.contains("visible")
     ) { // should only run once
       showNextTask();
-      console.log("show next task");
     }
 
     if (timeLeft <= 0) { // should only run once

@@ -18,11 +18,11 @@ The routines here are hardcoded, but feel free to fork this and put in your own 
   - [x] timer ring
   - [x] overtime counter
   - [x] next task shows when <30s remaining
-- [ ] create some kind of data structure to hold the routine info
+- [x] create some kind of data structure to hold the routine info
   - [x] make the timer consume from this data
   - [x] previous task
   - [x] next task
-  - [ ] shuffle
+  - [x] shuffle
 - [ ] extra functionality
   - [ ] next task button activates only after 1 min, if unskippable
   - [ ] create homepage; move timer to own page

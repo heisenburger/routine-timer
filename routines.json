@@ -2,70 +2,172 @@
   "morning": [
     {
       "task": "Draw the blinds and look outside",
-      "duration" : 1,
+      "duration": 1,
       "priority": 0
     },
     {
       "task": "Brush teeth, wash face, skincare",
-      "duration" : 8,
+      "duration": 8,
       "priority": 0
     },
     {
       "task": "Take meds / vitamins; water",
-      "duration" : 2,
+      "duration": 2,
       "priority": 0
     },
     {
       "task": "Get dressed",
-      "duration" : 5,
+      "duration": 5,
       "priority": 0
     },
     {
       "task": "Make the bed",
-      "duration" : 2,
+      "duration": 2,
       "priority": 1
     },
     {
       "task": "Sunscreen, makeup",
-      "duration" : 8,
+      "duration": 8,
       "priority": 0
     },
     {
       "task": "3 minute meditation",
-      "duration" : 3,
+      "duration": 3,
       "priority": 1
     },
     {
       "task": "Morning pages",
-      "duration" : 15,
+      "duration": 15,
       "priority": 2
     },
     {
       "task": "Check calendar for today, emails, chats",
-      "duration" : 5,
+      "duration": 5,
       "priority": 2
     },
     {
       "task": "Jewelry, perfume; outfit check",
-      "duration" : 2,
+      "duration": 2,
       "priority": 1
     },
     {
       "task": "Socks & shoes",
-      "duration" : 1,
+      "duration": 1,
       "priority": 0
     },
     {
       "task": "Bag. Keys. Wallet. Phone. Let's gooooo",
-      "duration" : 1,
+      "duration": 1,
       "priority": 0
     }
   ],
 
-  "routine": [
+  "arriveHome": [
     {
-      "task": "",
-      "duration" : 0,
+      "task": "Wash hands",
+      "duration": 1,
+      "priority": 0
+    },
+    {
+      "task": "Wash face; nighttime skincare",
+      "duration": 10,
+      "priority": 0
+    },
+    {
+      "task": "Change into comfy home clothes",
+      "duration": 3,
+      "priority": 2
+    },
+    {
+      "task": "Quick tidy",
+      "duration": 5,
+      "priority": 1,
+      "randomiser": [
+        "kitchen island",
+        "kitchen sink & dishes",
+        "coffee table",
+        "clothing chair",
+        "put away laundry",
+        "bathroom sink",
+        "couch",
+        "toilet area",
+        "tv console",
+        "shoe rack",
+        "entryway shelf",
+        "bedroom drawer",
+        "bedroom mini drawer",
+        "main bookshelf"
+      ]
+    },
+    {
+      "task": "3 minute meditation",
+      "duration": 3,
+      "priority": 1
+    },
+    {
+      "task": "Dim lights; soft jazz",
+      "duration": 1,
+      "priority": 1
+    },
+    {
+      "task": "Light a candle",
+      "duration": 1,
+      "priority": 2
+    },
+    {
+      "task": "Journal the day",
+      "duration": 5,
+      "priority": 2
+    },
+    {
+      "task": "Todos for tomorrow",
+      "duration": 2,
+      "priority": 2
+    },
+    {
+      "task": "Pack bag for tomorrow",
+      "duration": 5,
+      "priority": 2
+    },
+    {
+      "task": "Pick an outfit for tomorrow",
+      "duration": 8,
+      "priority": 2
+    }
+  ],
+
+  "beforeBed": [
+    {
+      "task": "zähneputzen !",
+      "duration": 2,
+      "priority": 0
+    },
+    {
+      "task": "floss",
+      "duration": 2,
+      "priority": 1
+    },
+    {
+      "task": "rinse mouth",
+      "duration": 1,
+      "priority": 1
+    },
+    {
+      "task": "rinse through the shower",
+      "duration": 10,
+      "priority": 1
+    }
+  ],
+
+  "example": [
+    {
+      "task": "example",
+      "duration": 0,
+      "priority": 0
+    },
+    {
+      "task": "Do Thing",
+      "duration": 0,
       "priority": 0,
       "randomiser": [
         "one",
