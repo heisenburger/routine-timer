@@ -2,7 +2,7 @@ header, footer {
   position: absolute;
   width: 100%;
   z-index: 1;
-  background-color: rgba(255,255,255,0.5);
+  background-color: var(--background-transparent);
   backdrop-filter: blur(1rem);
 }
 
@@ -69,7 +69,7 @@ button.randomiser {
       z-index: -1;
       box-shadow: 0 0 0 1px var(--foreground);
     }
-    
+
   display: none;
 }
 

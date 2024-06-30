@@ -64,9 +64,11 @@ dl, dd, ol, ul, figure {
   --foreground: black;
   --background: white;
   --accent: #5278ac;
+  --background-transparent: rgba(255,255,255,0.5);
   @include dark {
     --foreground: white;
     --background: black;
+    --background-transparent: rgba(0,0,0,0.5);
   }
 }
 

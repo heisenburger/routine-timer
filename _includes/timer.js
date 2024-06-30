@@ -14,7 +14,7 @@ fetch("./routines.json")
 // ---------------------------
 
 const FULL_DASH_ARRAY = 283;
-const showNextTaskWhen = 30;
+const showNextTaskWhen = 60;
 
 // Task variables
 let prevTask = "";
@@ -236,7 +236,7 @@ var countdown = new Timer(function() {
       !document.getElementById("next-task-label").classList.contains("visible")
     ) { // should only run once
       showNextTask();
-    console.log("show next task");
+      console.log("show next task");
     }
 
     if (timeLeft <= 0) { // should only run once

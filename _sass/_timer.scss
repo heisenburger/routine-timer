@@ -75,6 +75,7 @@ $max-width: 30rem;
 
   @include vw-w-max(font-size, 28vw);
   font-weight: 100;
+  color: var(--foreground);
 }
 
   #timer-label {
@@ -96,5 +97,5 @@ $max-width: 30rem;
   #overtime-label {
     @include chip;
     background-color: darkred;
-    color: var(--background);
+    color: white;
   }

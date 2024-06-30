@@ -37,6 +37,7 @@ h1, h2, h3 {
 button {
   background: none;
   border: none;
+  color: var(--foreground);
   &:active {
     position: relative;
     top: 2px;
