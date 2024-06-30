@@ -24,5 +24,6 @@ The routines here are hardcoded, but feel free to fork this and put in your own 
   - [x] next task
   - [x] shuffle
 - [ ] extra functionality
-  - [ ] next task button activates only after 1 min, if unskippable
   - [ ] create homepage; move timer to own page
+  - [ ] exit routine to main page
+  - [ ] next task button activates only after 1 min, if unskippable

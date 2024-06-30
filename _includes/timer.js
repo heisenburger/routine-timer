@@ -3,13 +3,15 @@
 
 var routineData = {};
 let currentTaskIndex = 0;
-fetch("./routines.json")
+
+// Load a specific routine
+function loadRoutine(routine) {
+  fetch("./routines.json")
   .then(response => response.json())
   .then(json => {
-    console.log(routineData);
-    routineData = structuredClone(json.arriveHome);
+    routineData = structuredClone(json[routine]);
   });
-
+}
 
 // Initialize global variables
 // ---------------------------
@@ -85,17 +87,20 @@ function Timer(fn, t) {
 // -----------------
 
 function setCurrentTask() {
-  // console.log(routineData[currentTaskIndex]);
-  if (currentTaskIndex >= 0) {
+  console.log(currentTaskIndex + " " + routineData[currentTaskIndex].task);
+
+  if (currentTaskIndex >= 0 && currentTaskIndex < routineData.length) {
 
     // set the task name
     task = routineData[currentTaskIndex].task ?? "No task found";
+    document.getElementById("task-title").textContent = task;
     taskDuration = routineData[currentTaskIndex].duration ?? 0; // in minutes
     taskPriority = routineData[currentTaskIndex].priority ?? 0; // [0, 1, 2]
     
     // random task flavour
     if (routineData[currentTaskIndex].randomiser) {
       randomiser = routineData[currentTaskIndex].randomiser ?? [];
+      document.getElementById("random").textContent = randomiser[Math.floor(Math.random() * randomiser.length)];
       showRandomiser();
     } else {
       hideRandomiser();
@@ -107,8 +112,9 @@ function setCurrentTask() {
     }
     if (routineData[currentTaskIndex+1]) {
       nextTask = routineData[currentTaskIndex+1].task ?? "";
+      document.getElementById("next-task-label").textContent = "Next: " + nextTask;
     } else {
-      nextTask = "FIN.";
+      document.getElementById("next-task-label").textContent = "FINISH";
     }
 
     // set the timeLimit for timer
@@ -117,7 +123,12 @@ function setCurrentTask() {
     countdown.reset();
   }
 
-  setTaskInfo();
+  // show/hide previous task button only if available
+  if (currentTaskIndex == 0) {
+    hidePrevTask();
+  } else if (currentTaskIndex == 1) {
+    showPrevTask();
+  }
 }
 
 
@@ -143,11 +154,12 @@ function calculateTimeFraction() {
 // DOM manipulations
 // -----------------
 
-function setTaskInfo() {
-  hideNextTask();
-  document.getElementById("task-title").textContent = task;
-  document.getElementById("random").textContent = randomiser[Math.floor(Math.random() * randomiser.length)];
-  document.getElementById("next-task-label").textContent = "Next: " + nextTask;
+function showPrevTask() {
+  document.getElementById("prev-task").setAttribute("style","display: inline-block");
+}
+
+function hidePrevTask() {
+  document.getElementById("prev-task").setAttribute("style","display: none");
 }
 
 function getAnotherRandomTaskFlavour() {
@@ -238,8 +250,12 @@ buttonTimer.addEventListener("click", (event) => {
 
 const buttonNextTask = document.getElementById("next-task");
 buttonNextTask.addEventListener("click", (event) => {
-  currentTaskIndex++;
-  setCurrentTask();
+  if (currentTaskIndex < routineData.length-1) {
+    currentTaskIndex++;
+    setCurrentTask();
+  } else {
+    console.log("exit routine");
+  }
 });
 
 // Create countdown timer

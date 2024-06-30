@@ -5,7 +5,7 @@ title: ☀️ Morning Routine ☀️
 
 <header>
   <section class="navigation">
-    <button id="prev-task">←</button>
+    <button id="prev-task" style="display:none;">←</button>
     <h3 id="routine">{{ page.title }}</h3>
     <button id="exit-routine">✗</button>
   </section>
@@ -51,5 +51,6 @@ title: ☀️ Morning Routine ☀️
 </footer>
 
 <script type="text/javascript">
-  {% include timer.js %}  
+  {% include timer.js %}
+  loadRoutine("morning");
 </script>
