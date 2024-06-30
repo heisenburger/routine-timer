@@ -24,6 +24,7 @@ The routines here are hardcoded, but feel free to fork this and put in your own 
   - [x] next task
   - [x] shuffle
 - [ ] extra functionality
-  - [ ] create homepage; move timer to own page
+  - [x] create homepage; move timer to own page
+    - [ ] list pages in custom order
   - [ ] exit routine to main page
   - [ ] next task button activates only after 1 min, if unskippable

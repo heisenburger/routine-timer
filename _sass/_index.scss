@@ -1,0 +1,24 @@
+ul.routine-list {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  padding: max(5vmin, 1rem);
+  gap: max(5vmin, 1rem);
+  list-style: none;
+  background-color: var(--foreground);
+}
+
+a.routine-link {
+  text-decoration: none;
+  display: grid;
+  height: 100%;
+  place-items: center;
+  border-radius: 1px;
+  background-color: var(--background);
+  font-size: clamp(1rem,5vh,5rem);
+  opacity: 0.95;
+
+  &:hover {
+    opacity: 1;
+  }
+}
