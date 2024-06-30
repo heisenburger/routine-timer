@@ -13,15 +13,15 @@ The routines here are hardcoded, but feel free to fork this and put in your own 
   - [x] countdown timer
   - [x] overtime counter
   - [x] next task
-- [ ] add countdown behaviour
+- [x] add countdown behaviour
   - [x] timer
   - [x] timer ring
   - [x] overtime counter
   - [x] next task shows when <30s remaining
 - [ ] create some kind of data structure to hold the routine info
-  - [ ] make the timer consume from this data
-  - [ ] previous task
-  - [ ] next task
+  - [x] make the timer consume from this data
+  - [x] previous task
+  - [x] next task
   - [ ] shuffle
 - [ ] extra functionality
   - [ ] next task button activates only after 1 min, if unskippable
