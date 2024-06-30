@@ -28,3 +28,4 @@ The routines here are hardcoded, but feel free to fork this and put in your own 
     - [ ] list pages in custom order
   - [ ] exit routine to main page
   - [ ] next task button activates only after 1 min, if unskippable
+- [ ] web server
