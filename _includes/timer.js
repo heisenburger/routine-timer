@@ -111,6 +111,7 @@ function setCurrentTask() {
       prevTask = routineData[currentTaskIndex-1].task ?? "";
     }
     if (routineData[currentTaskIndex+1]) {
+      hideNextTask();
       nextTask = routineData[currentTaskIndex+1].task ?? "";
       document.getElementById("next-task-label").textContent = "Next: " + nextTask;
     } else {
