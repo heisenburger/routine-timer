@@ -155,11 +155,13 @@ function calculateTimeFraction() {
 // -----------------
 
 function showPrevTask() {
-  document.getElementById("prev-task").setAttribute("style","display: inline-block");
+  document.getElementById("prev-task").setAttribute("style","opacity: 1");
+  document.getElementById("prev-task").removeAttribute("disabled");
 }
 
 function hidePrevTask() {
-  document.getElementById("prev-task").setAttribute("style","display: none");
+  document.getElementById("prev-task").setAttribute("style","opacity: 0");
+  document.getElementById("prev-task").setAttribute("disabled","");
 }
 
 function getAnotherRandomTaskFlavour() {
